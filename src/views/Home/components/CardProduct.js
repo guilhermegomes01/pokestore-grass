@@ -1,10 +1,10 @@
 import React from "react";
+import Image, { Shimmer } from "react-shimmer";
 import {
   withStyles,
   Grid,
   Typography,
   Card,
-  CardMedia,
   CardContent,
   CardActions,
   Button,
@@ -20,8 +20,15 @@ const styles = (theme) => ({
     fontSize: 18,
     fontWeight: "700",
   },
+  cashbackContainer: {
+    color: "#1d1d1d80",
+  },
   cashback: {
-    fontSize: 11,
+    fontSize: 10,
+  },
+  iconCashback: {
+    display: "flex",
+    paddingRight: 4,
   },
   cashbackPercentage: {
     color: theme.palette.primary.main,
@@ -31,19 +38,35 @@ const styles = (theme) => ({
 const CardProduct = ({ classes, id, name, image, price, setProductsCart }) => {
   return (
     <Card>
-      <CardMedia component="img" style={{}} image={image ? image : NotImage} />
       <CardContent>
+        <Grid item style={{ display: "flex", justifyContent: "center" }}>
+          <Image
+            NativeImgProps={{
+              style: {
+                width: 96,
+                height: "auto",
+              },
+            }}
+            src={image ? image : NotImage}
+            fallback={<Shimmer width={"100%"} height={96} />}
+          />
+        </Grid>
         <Typography gutterBottom>{CapitalizeString(name)}</Typography>
         <Typography className={classes.price}>
           {MoneyCurrency(price)}
         </Typography>
-        <Grid container alignItems="center" style={{ color: "#1d1d1d80" }}>
-          <Grid item style={{ display: "flex", paddingRight: 4 }}>
+        <Grid
+          container
+          alignItems="center"
+          wrap="nowrap"
+          className={classes.cashbackContainer}
+        >
+          <Grid item className={classes.iconCashback}>
             <MonetizationOnRoundedIcon fontSize="small" />
           </Grid>
           <Grid item>
             <Typography className={classes.cashback}>
-              Receba R$ 3,00{" "}
+              {`Receba ${MoneyCurrency(price / 10)}`}
               <span className={classes.cashbackPercentage}>(10% de volta)</span>
             </Typography>
           </Grid>
