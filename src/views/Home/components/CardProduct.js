@@ -94,6 +94,7 @@ const CardProduct = ({ classes, id, name, image, price, setProductsCart }) => {
               if (exists === undefined) {
                 return [...currentProducts, { ...productComplete }];
               } else {
+                // eslint-disable-next-line
                 currentProducts.map((product) => {
                   if (product.id === exists.id) {
                     product.quantity += 1;

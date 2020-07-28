@@ -56,7 +56,7 @@ const Home = ({ classes }) => {
   useEffect(() => {
     getType().then((data) => {
       data.pokemon.map((pokemon) => {
-        getPokemon(pokemon.pokemon.url).then((onePokemon) => {
+        return getPokemon(pokemon.pokemon.url).then((onePokemon) => {
           setPokemonList((currentPokemon) => {
             return [...currentPokemon, { ...onePokemon }];
           });

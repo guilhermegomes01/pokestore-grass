@@ -63,7 +63,7 @@ const CartSummary = ({
         setTotalValue(valuesProducts.reduce(sumValues));
       }
     }
-  }, [valuesProducts, useBalance]);
+  }, [valuesProducts, useBalance, balanceAvailable]);
 
   useEffect(() => {
     setCashback(totalValue / 10);

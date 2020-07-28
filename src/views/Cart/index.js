@@ -52,7 +52,7 @@ const Cart = ({
   useEffect(() => {
     setValuesProducts([0]);
     productsCart.map((product) => {
-      setValuesProducts((currentValues) => {
+      return setValuesProducts((currentValues) => {
         return [...currentValues, product.price * product.quantity];
       });
     });
