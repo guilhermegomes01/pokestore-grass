@@ -9,8 +9,8 @@ export default (theme) => ({
   deleteButton: {
     padding: 0,
     color: `${theme.palette.default.black}80`,
-    fontWeight: '600',
-    textTransform: 'initial'
+    fontWeight: "600",
+    textTransform: "initial",
   },
   productName: {
     fontSize: 16,
@@ -20,5 +20,11 @@ export default (theme) => ({
     color: theme.palette.primary.light,
     fontSize: 16,
     fontWeight: "700",
+  },
+  cartContainer: {
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "row",
+      padding: theme.spacing(3)
+    },
   },
 });

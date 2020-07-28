@@ -7,16 +7,25 @@ import {
   Button,
   TextField,
   IconButton,
+  Hidden
 } from "@material-ui/core";
 import AddRoundedIcon from "@material-ui/icons/AddRounded";
 import RemoveRoundedIcon from "@material-ui/icons/RemoveRounded";
+import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 
 import { MoneyCurrency } from "../../helpers/MoneyCurrency";
 
 import styles from "./styles.js";
 import CartSummary from "./components/CartSummary";
 
-const Cart = ({ classes, productsCart, setProductsCart }) => {
+const Cart = ({
+  classes,
+  productsCart,
+  setProductsCart,
+  balanceAvailable,
+  setBalanceAvailable,
+  handleCart,
+}) => {
   const [valuesProducts, setValuesProducts] = useState([0]);
 
   const changeQuantity = (index, quantitySinal, id) => {
@@ -50,22 +59,39 @@ const Cart = ({ classes, productsCart, setProductsCart }) => {
   }, [productsCart]);
 
   return (
-    <Grid container direction="column" spacing={2}>
-      <Grid item>
-        <Typography variant="h2" className={classes.titleCart}>
-          Carrinho
-        </Typography>
+    <Grid
+      container
+      direction="column"
+      className={classes.cartContainer}
+      spacing={2}
+    >
+      <Grid item xs={12}>
+        <Grid container alignItems="center" justify="space-between">
+          <Grid item>
+            <Typography variant="h2" className={classes.titleCart}>
+              Carrinho
+            </Typography>
+          </Grid>
+          <Hidden mdUp>
+            <Grid item>
+              <IconButton onClick={() => handleCart(false)}>
+                <CloseRoundedIcon />
+              </IconButton>
+            </Grid>
+          </Hidden>
+        </Grid>
       </Grid>
       <Grid item xs={12}>
         <Divider />
       </Grid>
-      {productsCart &&
-        productsCart.map((products, index) => (
-          <Grid item key={products.id}>
+      <Grid item>
+        {productsCart &&
+          productsCart.map((products, index) => (
             <Grid
               container
+              key={products.id}
               justify="space-between"
-              spacing={1}
+              spacing={2}
               direction="column"
             >
               <Grid item>
@@ -145,10 +171,16 @@ const Cart = ({ classes, productsCart, setProductsCart }) => {
                 <Divider />
               </Grid>
             </Grid>
-          </Grid>
-        ))}
+          ))}
+      </Grid>
       <Grid item>
-        <CartSummary valuesProducts={valuesProducts} />
+        <CartSummary
+          balanceAvailable={balanceAvailable}
+          setProductsCart={setProductsCart}
+          setBalanceAvailable={setBalanceAvailable}
+          valuesProducts={valuesProducts}
+          handleCart={handleCart}
+        />
       </Grid>
     </Grid>
   );
