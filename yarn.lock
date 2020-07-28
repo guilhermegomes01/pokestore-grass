@@ -3024,7 +3024,7 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
-clsx@^1.0.4:
+clsx@^1.0.4, clsx@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
   integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
@@ -8890,6 +8890,14 @@ react-scripts@3.4.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-shimmer@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/react-shimmer/-/react-shimmer-3.1.1.tgz#b54149bff603872559ffea6c2c5c938db0652052"
+  integrity sha512-K6yqDMqJjLs/CDn8i/s/ftKuVXerzLWxlzdy7fClvDMcLeYYlafjrW8UfgteT5Q1+xLiQg1hcbb5C7SmBr472A==
+  dependencies:
+    clsx "^1.1.0"
+    prop-types "^15.7.2"
 
 react-transition-group@^4.4.0:
   version "4.4.1"
