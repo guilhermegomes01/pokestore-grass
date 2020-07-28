@@ -11,7 +11,17 @@ import {
 
 import { MoneyCurrency } from "../../../helpers/MoneyCurrency";
 
-const styles = (theme) => ({});
+const styles = (theme) => ({
+  messageCashback: {
+    color: theme.palette.primary.main,
+    fontSize: 20,
+    fontWeight: '700'
+  },
+  congratulations: {
+    fontSize: 18,
+    fontWeight: '600'
+  }
+});
 
 const ModalCheckout = ({ classes, openDialog, handleClose, total }) => {
   return (
@@ -24,10 +34,10 @@ const ModalCheckout = ({ classes, openDialog, handleClose, total }) => {
         Obrigado pela Compra
       </DialogTitle>
       <DialogContent dividers>
-        <Typography gutterBottom>
+        <Typography gutterBottom variant="body1" className={classes.congratulations}>
           Parabéns!!
         </Typography>
-        <Typography gutterBottom>
+        <Typography gutterBottom className={classes.messageCashback}>
             {`Você recebeu ${MoneyCurrency(total/10)} de volta`}
         </Typography>
       </DialogContent>
