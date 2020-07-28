@@ -36,7 +36,6 @@ const styles = (theme) => ({
   cartColumn: {
     backgroundColor: theme.palette.common.white,
     marginTop: theme.spacing(3),
-    // position: 'fixed'
   },
   iconCart: {
     position: "absolute",
@@ -48,7 +47,7 @@ const styles = (theme) => ({
 const Home = ({ classes }) => {
   const [pokemonList, setPokemonList] = useState([]);
   const [productsCart, setProductsCart] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [balanceAvailable, setBalanceAvailable] = useState(40);
   const [pokemonFiltered, setPokemonFiltered] = useState([]);
   const [pokemonInitial, setPokemonInitial] = useState(true);
@@ -57,9 +56,9 @@ const Home = ({ classes }) => {
   useEffect(() => {
     getType().then((data) => {
       data.pokemon.map((pokemon) => {
-        getPokemon(pokemon.pokemon.url).then((one) => {
-          setPokemonList((cur) => {
-            return [...cur, { ...one }];
+        getPokemon(pokemon.pokemon.url).then((onePokemon) => {
+          setPokemonList((currentPokemon) => {
+            return [...currentPokemon, { ...onePokemon }];
           });
         });
       });
