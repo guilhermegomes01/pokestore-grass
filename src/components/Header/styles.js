@@ -31,4 +31,14 @@ export default (theme) => ({
   balanceTitle: {
     fontWeight: "700",
   },
+  centerResponsive: {
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+      justifyContent: "flex-start",
+    },
+  },
+  balanceValue: {
+    fontSize: 13,
+    fontWeight: '600'
+  }
 });
