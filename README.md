@@ -34,7 +34,7 @@ Para esta loja, foi utilizado a [PokeApi](https://pokeapi.co/), onde nós escolh
 ### 1ª Opção
 
 Você pode acessar clicando no link abaixo:
-[PokéStore Grass](https://guilhermegomes.dev)
+[PokéStore Grass](https://pokestoregrass.guilhermegomes.dev)
 
 ### 2ª Opção
 1. Abra o terminal e digite o seguinte
