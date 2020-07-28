@@ -16,10 +16,6 @@ const styles = (theme) => ({
     color: theme.palette.primary.main,
     fontSize: 20,
     fontWeight: '700'
-  },
-  congratulations: {
-    fontSize: 18,
-    fontWeight: '600'
   }
 });
 
@@ -34,9 +30,6 @@ const ModalCheckout = ({ classes, openDialog, handleClose, total }) => {
         Obrigado pela Compra
       </DialogTitle>
       <DialogContent dividers>
-        <Typography gutterBottom variant="body1" className={classes.congratulations}>
-          Parabéns!!
-        </Typography>
         <Typography gutterBottom className={classes.messageCashback}>
             {`Você recebeu ${MoneyCurrency(total/10)} de volta`}
         </Typography>
